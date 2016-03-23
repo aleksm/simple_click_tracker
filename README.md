@@ -23,13 +23,13 @@ First, you need to get the code from GitHub. Feel free to use whatever method yo
 
 Go to folder where you have just downloaded (pulled) code:
 
-```cd simple_click_tracker 
-```
+`cd simple_click_tracker 
+`
 
 You will notice there *pom.xml* file, so you know you are at the right place. Now, run maven build command:
 
-``mvn clean install
-``
+`mvn clean install
+`
 
 When you run it for the first time it may take some time to download all dependencies and external libraries used by Simple Click Tracker. When maven finishes its work you will have installation ready war file in *simple_click_tracker/target* folder. 
 
@@ -52,7 +52,7 @@ Adds new campaign into system.
 
 * Rest URL: **/admin/addCampaign** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -64,7 +64,7 @@ Adds new campaign into system.
 }
 }]
 }
-}```
+}`
 
 
 * **requestId** - Unique request identifier
@@ -72,11 +72,11 @@ Adds new campaign into system.
 * **redirectUrl** - Redirection URL for this campaign
 * **platformIds** - Allowed platforms for this campaign in form the string array. Possible values are: **Android**, **iOS**, **Windows** or any combination of those values
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "initialRequestId": "1234567",
 "payload": {"data": [{"properties": {"status": "0"}}]}
-}```
+}`
 
 * **initialRequestId** - ID of received request
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description. 
@@ -88,7 +88,7 @@ Returns information about specific existing campaign.
 
 * Rest URL: **/admin/getCampaign** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -98,13 +98,13 @@ Returns information about specific existing campaign.
 }
 }]
 }
-}```
+}`
 
 
 * **requestId** - unique request identifier
 * **campaignId** - Id of the single campaign
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "initialRequestId": "1234567",
 "payload": {"data": [{"properties":    {
@@ -115,7 +115,7 @@ Returns information about specific existing campaign.
 "createDate": "23.03.2016",
 "updateDate": "23.03.2016"
 }}]}
-}```
+}`
 
 * **initialRequestId** - ID of received request
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description. 
@@ -131,7 +131,7 @@ Updates existing campaign.
 
 * Rest URL: **/admin/updateCampaign** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -143,7 +143,7 @@ Updates existing campaign.
 }
 }]
 }
-}```
+}`
 
 
 * **requestId** - Unique request identifier
@@ -151,11 +151,11 @@ Updates existing campaign.
 * **redirectUrl** - Redirection URL for this campaign
 * **platformIds** - Allowed platforms for this campaign in form the string array. Possible values are: **Android**, **iOS**, **Windows** or any combination of those values
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "initialRequestId": "1234567",
 "payload": {"data": [{"properties": {"status": "0"}}]}
-}```
+}`
 
 * **initialRequestId** - ID of received request
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description. 
@@ -166,7 +166,7 @@ Deletes specific campaign from the system.
 
 * Rest URL: **/admin/deleteCampaign** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -176,17 +176,17 @@ Deletes specific campaign from the system.
 }
 }]
 }
-}```
+}`
 
 
 * **requestId** - unique request identifier
 * **campaignId** - Id of the single campaign
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "initialRequestId": "1234567",
 "payload": {"data": [{"properties": {"status": "0"}}]}
-}```
+}`
 
 * **initialRequestId** - ID of received request
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description. 
@@ -199,7 +199,7 @@ Returns all existing campaigns from the system.
 * Method: **GET**
 
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "payload": {
 "data": [
@@ -237,7 +237,7 @@ Returns all existing campaigns from the system.
 }
 ]
 }
-}```
+}`
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description. In special case when list is empty (no campaign in DB) status code 100 is returned.
 * **campaignId** - ID of this campaign
 * **platformIds** - Allowed platforms for this campaign in form the string array. Possible values are: **Android**, **iOS**, **Windows** or any combination of those values
@@ -251,7 +251,7 @@ Returns all existing campaigns from the system for desired platform
 
 * Rest URL: **/admin/getAllCampaignsForPlatform** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -261,11 +261,11 @@ Returns all existing campaigns from the system for desired platform
 }
 }]
 }
-}```
+}`
 * **requestId** - unique request identifier
 * **platformIds** - Allowed platforms for this campaign in form the string array. Possible value is one from the next: **Android**, **iOS**, **Windows**.
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "payload": {
 "data": [
@@ -303,7 +303,7 @@ Returns all existing campaigns from the system for desired platform
 }
 ]
 }
-}```
+}`
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description. In special case when list is empty (no campaign in DB) status code 100 is returned.
 * **campaignId** - ID of this campaign
 * **platformIds** - Allowed platforms for this campaign in form the string array. Possible values are: **Android**, **iOS**, **Windows** or any combination of those values
@@ -317,7 +317,7 @@ Returns number of clicks made by users for selected platform and campaign
 
 * Rest URL: **/admin/getNumberOfClicksPerCampaignPlatform** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -328,19 +328,19 @@ Returns number of clicks made by users for selected platform and campaign
 }
 }]
 }
-}```
+}`
 * **requestId** - unique request identifier
 * **platformId** - Possible value is one from the next: **Android**, **iOS**, **Windows**
 * **campaignId** - ID of this campaign
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "initialRequestId": "1234567",
 "payload": {"data": [{"properties":    {
 "status": "0",
 "numberOfClicks": "1"
 }}]}
-}```
+}`
 * **initialRequestId** - ID of received request
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description.
 * **numberOfClicks** - Number of clicks
@@ -351,7 +351,7 @@ Returns number of clicks made by users for selected platform
 
 * Rest URL: **/admin/getNumberOfClicksPerPlatform** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "requestId":"1234567",
 "payload":{
@@ -361,18 +361,18 @@ Returns number of clicks made by users for selected platform
 }
 }]
 }
-}```
+}`
 * **requestId** - unique request identifier
 * **platformId** - Possible value is one from the next: **Android**, **iOS**, **Windows**
 
-* Returns JSON response: ```
+* Returns JSON response: `
 {
 "initialRequestId": "1234567",
 "payload": {"data": [{"properties":    {
 "status": "0",
 "numberOfClicks": "1"
 }}]}
-}```
+}`
 * **initialRequestId** - ID of received request
 * **status** - 0 if everything was OK, otherwise it will be <> 0. In case of <> 0, also **status_description** will be returned with error description.
 * **numberOfClicks** - Number of clicks
@@ -387,7 +387,7 @@ Track user's clicks. Checks if click is valid in terms of syntax (input JSON par
 
 * Rest URL: **/track/trackClick** 
 * Method: **POST**
-* JSON request payload: ```
+* JSON request payload: `
 {
 "payload":{
 "data":[{
@@ -397,7 +397,7 @@ Track user's clicks. Checks if click is valid in terms of syntax (input JSON par
 }
 }]
 }
-}```
+}`
 * **campaignId** - campaign ID
 * **platformId** - Possible value is one from the next: **Android**, **iOS**, **Windows**
 
@@ -407,8 +407,8 @@ If click is valid user is redirected to URL defined inside campaign with **campa
 
 When application is started it is being initialized with values from properties file which is located in: *simple_click_tracker/src/main/webapp/WEB-INF/classes/SimpleClickTrackerProperties.xml*. Inside it you can find 2 settings:
 
-<entry key="default.redirect.url">http://www.google.com</entry>
-<entry key="date.format">dd.MM.yyyy</entry>
+    <entry key="default.redirect.url">http://www.google.com</entry>
+    <entry key="date.format">dd.MM.yyyy</entry>
 
 First one is default URL in case od unexisting campaign or invalid request. The second parameter is date format used for formatting of creation date and last update.
 
